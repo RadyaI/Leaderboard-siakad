@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
 use App\Models\Siswa;
 use App\Http\Requests\StoreSiswaRequest;
 use App\Http\Requests\UpdateSiswaRequest;
@@ -13,11 +13,18 @@ class SiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $data = Siswa::get();
-        return repsonse()->json();
+        if($request->has('cari_siswa')){
+            $data_siswa = Siswa::where('nama_siswa','LIKE','%'.$request -> cari_siswa.'%')->get();
+        }else{
+            $data_siswa = Siswa::get();
+        }
+
+            $siswa=[
+                'siswa' => $data_siswa
+            ];
+            return view('dashboard' , $siswa);
     }
 
     /**
