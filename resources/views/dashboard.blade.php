@@ -113,6 +113,15 @@
                             </form> 
                    </div>
                 <div class="card-body">
+                    <form action="/siswa" method="GET">
+                        <select name="filter_angkatan" id="">
+                            <option value="">Filter angkatan</option>
+                            <option value="29">Angkatan 29</option>
+                            <option value="30">Angkatan 30</option>
+                            <option value="31">Angkatan 31</option>
+                        </select>
+                        <input type="submit" value="Terapkan">
+                    </form><br>
                     <table class="table table-hover table-stripped ">
                         <thead class="bg-dark text-light">
                             <tr>
