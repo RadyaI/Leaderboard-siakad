@@ -114,13 +114,19 @@
                    </div>
                 <div class="card-body">
                     <form action="/siswa" method="GET">
-                        <select name="filter_angkatan" id="">
-                            <option value="">Filter angkatan</option>
-                            <option value="29">Angkatan 29</option>
-                            <option value="30">Angkatan 30</option>
-                            <option value="31">Angkatan 31</option>
-                        </select>
-                        <input type="submit" value="Terapkan">
+                      <div class="row">
+                          <div class="col-auto">
+                                 <select name="filter_angkatan" id="" class="form-control">
+                                    <option value="">Filter angkatan</option>
+                                    <option value="29">Angkatan 29</option>
+                                    <option value="30">Angkatan 30</option>
+                                    <option value="31">Angkatan 31</option>
+                                </select>
+                          </div>
+                           <div class="col">
+                                <input type="submit" value="Terapkan" class="btn btn-primary">
+                           </div>
+                      </div>
                     </form><br>
                     <table class="table table-hover table-stripped ">
                         <thead class="bg-dark text-light">
@@ -147,7 +153,7 @@
                                     data-angkatan="{{ $data_siswa->angkatan }}"
                                     data-kelas="{{ $data_siswa->kelas }}"
                                     data-nisn="{{ $data_siswa->nisn }}"
-                                    data-tgl_lahir="{{ $data_siswa->TempatTanggalLahir }}"
+                                    data-TempatTanggalLahir="{{ $data_siswa->TempatTanggalLahir }}"
                                     data-gender="{{ $data_siswa->gender }}"
                                     data-agama="{{ $data_siswa->agama }}"
                                  > {{ $data_siswa -> nama_siswa }}</a></th>
