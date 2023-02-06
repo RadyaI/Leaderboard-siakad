@@ -16,11 +16,12 @@ class SiswaController extends Controller
     public function index(Request $request)
     {
         if($request->has('cari_siswa')){
-            $data_siswa = Siswa::where('nama_siswa','LIKE','%'.$request -> cari_siswa.'%')->get();
+            $data_siswa = Siswa::orderBy('nilai','desc')->where('nama_siswa','LIKE','%'.$request -> cari_siswa.'%')->get();
         }elseif($request->has('filter_angkatan')){
-            $data_siswa = siswa::where('angkatan','LIKE','%'.$request -> filter_angkatan .'%')->get();
+            $data_siswa = siswa::orderBy('nilai','desc')->where('angkatan','LIKE','%'.$request -> filter_angkatan .'%')->get();
         }else{
-            $data_siswa = siswa::get();
+            $data_siswa = siswa::orderBy('nilai','desc')
+            ->get();
         }
             
         
@@ -29,6 +30,7 @@ class SiswaController extends Controller
         // }else{
         //     $data_siswa = siswa::get();
         // }
+
 
             $siswa=[
                 'siswa' => $data_siswa

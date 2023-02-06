@@ -22,6 +22,7 @@ return new class extends Migration
             $table->enum('gender', ['Laki-laki','Perempuan']);
             $table->string('Agama');
             $table->integer('id_portofolio');
+            $table->float('nilai');
             $table->timestamps();
         });
     }

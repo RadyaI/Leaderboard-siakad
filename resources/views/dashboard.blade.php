@@ -140,10 +140,10 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @php($no = 1 )
                             @foreach($siswa as $data_siswa)
-                            @php($no=1)
                                <tr role="row">
-                                 <th>{{ $data_siswa -> id }}</th>
+                                 <th>{{ $no }}</th>
                                  <th><a href="" 
                                     id="modalsiswa"
                                     data-bs-toggle="modal" 
@@ -159,10 +159,10 @@
                                  > {{ $data_siswa -> nama_siswa }}</a></th>
                                  <th>{{ $data_siswa -> kelas }}</th>
                                  <th>{{ $data_siswa -> angkatan }}</th>
-                                 <th>Sementara Kosong</th>
+                                 <th>{{ $data_siswa -> nilai }}</th>
                                  <th>Sementara Kosong</th>
                                </tr>
-                              @php($no++) 
+                            @php($no++)
                             @endforeach
                         </tbody>
                     </table>
